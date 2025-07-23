@@ -14,3 +14,13 @@ class AgeOfWar:
             self.FOOTARCHER: {},
             self.CAVALRYARCHER: {},
         }
+
+    def soldier_hierarchy(self) -> dict[str, list]:
+        return {
+            self.MILITIA: [self.SPEARMEN, self.LIGHTCAVALRY],
+            self.SPEARMEN: [self.LIGHTCAVALRY, self.HEAVYCAVALRY],
+            self.LIGHTCAVALRY: [self.FOOTARCHER, self.CAVALRYARCHER],
+            self.HEAVYCAVALRY: [self.FOOTARCHER, self.LIGHTCAVALRY],
+            self.FOOTARCHER: [self.SPEARMEN, self.HEAVYCAVALRY],
+            self.CAVALRYARCHER: [self.MILITIA, self.CAVALRYARCHER],
+        }
