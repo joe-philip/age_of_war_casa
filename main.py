@@ -25,9 +25,9 @@ class AgeOfWar:
             self.MILITIA: [self.SPEARMEN, self.LIGHTCAVALRY],
             self.SPEARMEN: [self.LIGHTCAVALRY, self.HEAVYCAVALRY],
             self.LIGHTCAVALRY: [self.FOOTARCHER, self.CAVALRYARCHER],
-            self.HEAVYCAVALRY: [self.FOOTARCHER, self.LIGHTCAVALRY],
-            self.FOOTARCHER: [self.SPEARMEN, self.HEAVYCAVALRY],
-            self.CAVALRYARCHER: [self.MILITIA, self.CAVALRYARCHER],
+            self.HEAVYCAVALRY: [self.MILITIA, self.FOOTARCHER, self.LIGHTCAVALRY],
+            self.CAVALRYARCHER: [self.SPEARMEN, self.HEAVYCAVALRY],
+            self.FOOTARCHER: [self.MILITIA, self.CAVALRYARCHER],
         }
 
     def parse_input_line(self, line: str) -> dict[str, dict]:
