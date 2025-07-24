@@ -1,3 +1,4 @@
+from itertools import permutations
 from re import findall
 
 
@@ -82,3 +83,15 @@ class AgeOfWar:
         for soldier_name, count in data:
             result += f'{soldier_name}#{count};'
         return result[0:-1]
+
+    def find_solution(self) -> str:
+        own_platoons = self.get_platoons('own')
+        enemy_platoons = self.get_platoons('enemy')
+        army_combinations = tuple(permutations(own_platoons))
+        for combination in army_combinations:
+            results = []
+            for i in range(len(combination)):
+                results.append(self.battle_result(combination[i], enemy_platoons[i]))
+            if results.count(True) >= 3:
+                return self.format_soldier_data(combination)
+        return "There is no chance of winning"
