@@ -99,3 +99,10 @@ class AgeOfWar:
             if results.count(True) >= 3:
                 return self.format_soldier_data(combination)
         return "There is no chance of winning"
+
+
+with open('input.txt', 'r') as handle:
+    input_data = handle.read()
+instance = AgeOfWar(input_data)
+result = instance.find_solution()
+print(result)
