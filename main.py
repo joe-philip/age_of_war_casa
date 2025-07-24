@@ -69,3 +69,10 @@ class AgeOfWar:
         elif own_count < enemy_count:
             return False
         return None
+
+    def get_platoons(self, type: str) -> list:
+        data = []
+        for soldier_name, soldier_data in self.soldier_database.items():
+            if (count := soldier_data.get(type, 0)) != 0:
+                data.append((soldier_name, count))
+        return list(filter(lambda x: x[1] != 0, data))
