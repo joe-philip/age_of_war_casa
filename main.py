@@ -56,7 +56,7 @@ class AgeOfWar:
         enemy_data = self.parse_input_line(lines[1])
         self.store_data_to_soldier_database(enemy_data, 'enemy')
 
-    def battle_result(self, own: tuple, enemy: tuple) -> str:
+    def battle_result(self, own: tuple, enemy: tuple) -> bool | None:
         own_class, own_count = own
         enemy_class, enemy_count = enemy
         hierarchy = self.soldier_hierarchy()
@@ -65,7 +65,7 @@ class AgeOfWar:
         if own_class in hierarchy.get(enemy_class, []):
             enemy_count *= 2
         if own_count > enemy_count:
-            return 'Win'
+            return True
         elif own_count < enemy_count:
-            return 'Loss'
-        return 'Draw'
+            return False
+        return None
