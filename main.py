@@ -76,3 +76,9 @@ class AgeOfWar:
             if (count := soldier_data.get(type, 0)) != 0:
                 data.append((soldier_name, count))
         return list(filter(lambda x: x[1] != 0, data))
+
+    def format_soldier_data(self, data: tuple) -> str:
+        result = ''
+        for soldier_name, count in data:
+            result += f'{soldier_name}#{count};'
+        return result[0]
