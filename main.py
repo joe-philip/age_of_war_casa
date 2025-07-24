@@ -91,7 +91,11 @@ class AgeOfWar:
         for combination in army_combinations:
             results = []
             for i in range(len(combination)):
-                results.append(self.battle_result(combination[i], enemy_platoons[i]))
+                results.append(
+                    self.battle_result(
+                        combination[i], enemy_platoons[i]
+                    )
+                )
             if results.count(True) >= 3:
                 return self.format_soldier_data(combination)
         return "There is no chance of winning"
