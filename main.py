@@ -81,4 +81,4 @@ class AgeOfWar:
         result = ''
         for soldier_name, count in data:
             result += f'{soldier_name}#{count};'
-        return result[0]
+        return result[0:-1]
